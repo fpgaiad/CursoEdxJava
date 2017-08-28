@@ -7,6 +7,7 @@
 ##	Projeto: Trip Planner (Projeto final do módulo 1)
 */
 
+
 import java.util.Scanner;
 
 public class TripPlanner {
