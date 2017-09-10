@@ -85,8 +85,8 @@ public class Crypto {
                     } else if (temp < 65) {
                         temp = temp + 26; // ajusta temp quando resultado for menor que a letra 'A'
                     }
-                    charArray[i] = (char) temp; // cria array com caracteres já 'shiftados'
                 }
+                charArray[i] = (char) temp; // cria array com caracteres já 'shiftados'
         }
         String result = new String(charArray); // passa resultado do array 'shiftado' para uma String
         return result;
@@ -140,8 +140,8 @@ public class Crypto {
                 } else if (temp < 65) {
                     temp = temp + 26; // ajusta temp quando resultado for menor que a letra 'A'
                 }
-                charArray[i] = (char) temp; // cria array com caracteres já corrigidos
             }
+            charArray[i] = (char) temp; // cria array com caracteres já corrigidos
         }
         String result = new String(charArray); // passa resultado do array corrigido para uma String
         return result;
