@@ -71,36 +71,44 @@ public class FractionCalculator {
                 secondPrint = fractionTwo.toString();
 
                 //Data treatment
-                String result;
+                Fraction result = new Fraction();
+                String equalsResult = "";
                 switch (operator) {
                     case "/":
-                        result = fractionOne.divide(fractionTwo).toString();
+                        result = fractionOne.divide(fractionTwo);
                         break;
                     case "*":
-                        result = fractionOne.multiply(fractionTwo).toString();
+                        result = fractionOne.multiply(fractionTwo);
                         break;
                     case "+":
-                        result = fractionOne.add(fractionTwo).toString();
+                        result = fractionOne.add(fractionTwo);
                         break;
                     case "-":
-                        result = fractionOne.subtract(fractionTwo).toString();
+                        result = fractionOne.subtract(fractionTwo);
                         break;
                     case "=":
                         boolean temp = fractionOne.equals(fractionTwo);
                         if (temp) {
-                            result = "Equals";
+                            equalsResult = "Equals";
                         } else {
-                            result = "Not equals";
+                            equalsResult = "Not equals";
                         }
-                        break;
-                    default:
-                        result = "ERROR!";
                         break;
                 }
 
                 //Shows result
-                System.out.println("(" + firstPrint + ") " + operator + " (" + secondPrint + ") = " + result);
-                System.out.println("--------------------------------------------------------------");
+                if (equalsResult.equals("Equals") || equalsResult.equals("Not equals")){
+                        System.out.println("(" + firstPrint + ") " + operator + " (" + secondPrint + ") = " + equalsResult);
+                        System.out.println("-------------------------------------------------------------------------------");
+                }
+                else if (result.getNumerator() == 0 || result.getDenominator() == 1) {
+                    System.out.println("(" + firstPrint + ") " + operator + " (" + secondPrint + ") = " + result.getNumerator());
+                    System.out.println("-------------------------------------------------------------------------------");
+                } else {
+                    System.out.println("(" + firstPrint + ") " + operator + " (" + secondPrint + ") = " + result.toString());
+                    System.out.println("-------------------------------------------------------------------------------");
+                }
+
             } else {
                 // if user inputs the "Q" letter
                 System.out.println("Thank you for using Fraction Calculator!"); //Exit message
