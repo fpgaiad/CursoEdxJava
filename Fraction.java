@@ -25,6 +25,18 @@ public class Fraction {
     }
 
     //Methods:
+    public int getNumerator() {
+        int result;
+        result = this.numerator;
+        return result;
+    }
+
+    public int getDenominator() {
+        int result;
+        result = this.denominator;
+        return result;
+    }
+
     public String toString() {
         return this.numerator + "/" + this.denominator;
     }
