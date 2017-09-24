@@ -94,7 +94,7 @@ public class FractionCalculator {
                         }
                         break;
                     default:
-                        result = "error!";
+                        result = "ERROR!";
                         break;
                 }
 
@@ -151,3 +151,4 @@ public class FractionCalculator {
         }
     }
 }
+
