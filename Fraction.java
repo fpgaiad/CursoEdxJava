@@ -36,6 +36,7 @@ public class Fraction {
         otherFraction.numerator = result.denominator / otherFraction.denominator * otherFraction.numerator;
         result.numerator = this.numerator + otherFraction.numerator;
         result.toLowestTerms();
+        result.zeroResult();
         return result;
     }
 
@@ -46,6 +47,7 @@ public class Fraction {
         otherFraction.numerator = result.denominator / otherFraction.denominator * otherFraction.numerator;
         result.numerator = this.numerator - otherFraction.numerator;
         result.toLowestTerms();
+        result.zeroResult();
         return result;
     }
 
@@ -55,6 +57,7 @@ public class Fraction {
             result.numerator = this.numerator * otherFraction.numerator;
             result.denominator = this.denominator * otherFraction.denominator;
             result.toLowestTerms();
+            result.zeroResult();
             return result;
         } else {
             result.numerator =0;
@@ -69,6 +72,7 @@ public class Fraction {
             result.numerator = this.numerator * otherFraction.denominator;
             result.denominator = this.denominator * otherFraction.numerator;
             result.toLowestTerms();
+            result.zeroResult();
             return result;
         } else {
             result.numerator = 0;
@@ -94,11 +98,13 @@ public class Fraction {
 
     private void toLowestTerms() { // converts the current fraction to the lowest terms
         int gdc = gdc(this.numerator, this.denominator);
-        this.numerator /= gdc;
-        this.denominator /= gdc;
-        if (this.denominator < 0) {
-            this.denominator *= -1;
-            this.numerator *= -1;
+        if (gdc != 0) {
+            this.numerator /= gdc;
+            this.denominator /= gdc;
+            if (this.denominator < 0) {
+                this.denominator *= -1;
+                this.numerator *= -1;
+            }
         }
     }
 
@@ -109,5 +115,11 @@ public class Fraction {
             denominator = reminder;
         }
         return numerator;
+    }
+
+    private void zeroResult() {
+        if (this.numerator == 0) {
+            this.denominator = 1;
+        }
     }
 }
